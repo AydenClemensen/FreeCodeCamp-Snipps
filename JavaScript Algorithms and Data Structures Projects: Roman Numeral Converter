@@ -1,0 +1,21 @@
+function convertToRoman(num) {
+  //Empty Roman Numerals string
+  var roman = "";
+  //Array of possible outcomes upt to 1000
+  var romanNumeral = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+  var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+  //Iterate for a length of our numbers array
+  for(var i = 0; i < numbers.length; i++) {
+    //While original number is larger than input value
+    while (num >= numbers[i]) {
+      //Add its equivalent roman numeral to original empty string
+      roman += romanNumeral[i];
+      //Subtract the value from original number to end while loop
+      num -= numbers[i];
+    }
+  }
+  return roman;
+}
+
+console.log(convertToRoman(36));
