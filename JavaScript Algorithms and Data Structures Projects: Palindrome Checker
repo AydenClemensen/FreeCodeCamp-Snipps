@@ -1,0 +1,30 @@
+function palindrome(str) {
+  var regex = /[\W_]/g;
+  //Converting string to lower case and ensuring all regular expressions can be comapared
+  var newArr = str.toLowerCase().replace(regex,"");
+
+  //Length of string
+  var length = newArr.length;
+
+  //Loop to compare values moving forward and backward at the same time
+  for (var i = 0; i < length/2; i++) {
+      if (newArr[i] !== newArr[length - i - 1]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+console.log(palindrome("eye"));
+
+/*
+Alternate Solution
+
+function palindrome(str) {
+  var re = /[\W_]/g;
+  var lowRegStr = str.toLowerCase().replace(re, '');
+  var reverseStr = lowRegStr.split('').reverse().join(''); 
+  return reverseStr === lowRegStr;
+}
+palindrome("A man, a plan, a canal. Panama");
+*/
