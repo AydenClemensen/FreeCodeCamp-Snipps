@@ -1,0 +1,23 @@
+function rot13(str) { // LBH QVQ VG!
+    //For regular expression characters only
+    var regex = /[A-Z]/i;
+    //Empty decipheredText string/array
+    var decipheredText = [];
+    //Splitting ciphered text to allow comparison
+    var cipheredText = str.split("");
+    //value of caesars translation
+    var caesarsCipher = 13;
+
+    for (var i in cipheredText) {
+        if (regex.test(cipheredText[i])) {
+            decipheredText.push((cipheredText[i].charCodeAt() - 65 + caesarsCipher) % 26 + 65)
+        } else {
+            decipheredText.push(cipheredText[i].charCodeAt());
+        }
+    }
+    decipheredText = String.fromCharCode.apply(String, decipheredText);
+    return decipheredText;
+}
+
+// Change the inputs below to test
+console.log(rot13("SERR PBQR PNZC"));
