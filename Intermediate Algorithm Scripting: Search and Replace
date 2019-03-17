@@ -1,0 +1,16 @@
+function myReplace(str, before, after) {
+  var newStr = [];
+  var myArgs = Array.from(arguments).slice(1);
+
+  //Check whether the first letter is uppercase or not
+  if(/[A-Z]/.test(before[0])){
+  //Change the word to be capitalized
+    after = after.charAt(0).toUpperCase()+after.slice(1);
+  }
+
+  newStr = str.replace(myArgs[0], after);
+  return newStr;
+}
+
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+
